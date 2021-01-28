@@ -8,15 +8,19 @@ import { RatingComponent } from '../components/rating/rating.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  @ViewChild(RatingComponent, {static: true}) ratingComponent: RatingComponent;
+  @ViewChild(RatingComponent, { static: true })
+  ratingComponent: RatingComponent;
   reviewForm = new FormGroup({
     comment: new FormControl('', []),
-    rating: new FormControl(5, [ Validators.required, Validators.min(1), Validators.max(5) ])
-  })
+    rating: new FormControl(4, [
+      Validators.required,
+      Validators.min(1),
+      Validators.max(5),
+    ]),
+  });
   constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   submitReview(form: FormGroup) {
     console.log(form.value);

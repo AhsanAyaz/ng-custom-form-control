@@ -6,7 +6,8 @@
     <form class="input-container" [formGroup]="reviewForm" (ngSubmit)="submitReview(reviewForm)">
       <div class="mb-3">
         <label for="ratingInput" class="form-label">Rating</label>
-        <input formControlName="rating" type="number" class="form-control" id="ratingInput">
+        <app-rating formControlName="rating"></app-rating>
+        <!-- <input formControlName="rating" type="number" class="form-control" id="ratingInput"> -->
         <div
           *ngIf="reviewForm.get('rating').getError('min') || reviewForm.get('rating').getError('max')"
           class="alert alert-danger" id="ratingError">
@@ -38,6 +39,8 @@
           <p class="review-container__form-value__val">{{ratingComponent.isMouseOver}}</p>
           <label>Hovered Rating: </label>
           <p class="review-container__form-value__val">{{ratingComponent.hoveredRating}}</p>
+          <label>Is Disabled: </label>
+          <p class="review-container__form-value__val">{{ratingComponent.disabled}}</p>
         </div>
       </div>
     </div>
