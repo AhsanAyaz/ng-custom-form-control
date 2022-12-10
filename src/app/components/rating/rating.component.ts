@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class RatingComponent implements OnInit, ControlValueAccessor {
   @Input() disabled = false;
-  value = 2;
+  value = 3;
   hoveredRating = 2;
   isMouseOver = false;
 
@@ -23,18 +23,22 @@ export class RatingComponent implements OnInit, ControlValueAccessor {
   onTouch = (_: any) => {};
 
   registerOnChange(angularProvidedFunction) {
+    console.log('registerOnChange', angularProvidedFunction);
     this.onChange = angularProvidedFunction;
   }
 
   registerOnTouched(angularProvidedFunction) {
+    console.log('registerOnTouched', angularProvidedFunction);
     this.onTouch = angularProvidedFunction;
   }
 
   writeValue(angularProvidedValue) {
+    console.log('writeValue', angularProvidedValue);
     this.value = angularProvidedValue;
   }
 
   setDisabledState(angularProvidedDisabledVal) {
+    console.log('setDisabledState', angularProvidedDisabledVal);
     this.disabled = angularProvidedDisabledVal;
   }
 
@@ -48,6 +52,7 @@ export class RatingComponent implements OnInit, ControlValueAccessor {
     this.hoveredRating = null;
     this.isMouseOver = false;
   }
+
   selectRating(rating: number) {
     if (this.disabled) return;
     this.value = rating;

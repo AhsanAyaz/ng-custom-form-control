@@ -6,7 +6,7 @@
     <form class="input-container" [formGroup]="reviewForm" (ngSubmit)="submitReview(reviewForm)">
       <div class="mb-3">
         <label for="ratingInput" class="form-label">Rating</label>
-        <app-rating formControlName="rating"></app-rating>
+        <app-rating formControlName="rating" ></app-rating>
         <!-- <input formControlName="rating" type="number" class="form-control" id="ratingInput"> -->
         <div
           *ngIf="reviewForm.get('rating').getError('min') || reviewForm.get('rating').getError('max')"
